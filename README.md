@@ -185,8 +185,7 @@ This script will guide you through deploying both backend and frontend.
    - Click "Deploy"
 
 📋 **For detailed deployment instructions, see:**
-- [`DEPLOYMENT_CHECKLIST.md`](./DEPLOYMENT_CHECKLIST.md) - Quick step-by-step guide
-- [`DEPLOYMENT.md`](./DEPLOYMENT.md) - Comprehensive deployment documentation
+- [`QUICKSTART.sh`](./QUICKSTART.sh) - Quick step-by-step deployment script
 
 ## 📝 Recent Updates
 

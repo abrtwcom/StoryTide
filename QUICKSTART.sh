@@ -93,9 +93,6 @@ This script will walk you through each step!
 
 📚 MORE DOCUMENTATION
 ─────────────────────
-• DEPLOYMENT_SUMMARY.md - Complete overview
-• DEPLOYMENT_CHECKLIST.md - Step-by-step checklist
-• DEPLOYMENT.md - Detailed documentation
 • README.md - Project information
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -113,7 +110,7 @@ Common issues:
 ❌ Database errors
   → Verify DATABASE_URL is correct and active
 
-See DEPLOYMENT_SUMMARY.md for detailed troubleshooting.
+See README.md for more information.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

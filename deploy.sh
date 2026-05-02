@@ -137,7 +137,7 @@ main() {
     echo "3. Create a test blog post"
     echo "4. Verify everything works correctly"
     echo ""
-    echo -e "${YELLOW}For detailed troubleshooting, see DEPLOYMENT.md${NC}"
+    echo -e "${YELLOW}For detailed troubleshooting, see README.md${NC}"
 }
 
 # Run main function
