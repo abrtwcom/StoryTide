@@ -92,7 +92,8 @@ export const Publish = () => {
                                         title,
                                         content: description
                                     }, {
-                                        headers: tokenManager.getAuthHeader()
+                                        headers: tokenManager.getAuthHeader(),
+                                        withCredentials: true
                                     });
                                     navigate(`/blog/${response.data.id}`)
                                 } catch (e: unknown) {

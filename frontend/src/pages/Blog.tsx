@@ -10,13 +10,23 @@ export const Blog = () => {
         id: id || ""
     });
 
-    if (loading || !blog) {
+    if (loading) {
         return <div className="min-h-screen bg-terminal-bg">
             <Appbar />
             <div className="h-screen flex flex-col justify-center">
                 <div className="flex justify-center">
                     <Spinner message="LOADING_BLOG_ENTRY" />
                 </div>
+            </div>
+        </div>
+    }
+
+    if (!blog) {
+        return <div className="min-h-screen bg-terminal-bg">
+            <Appbar />
+            <div className="h-screen flex flex-col justify-center items-center font-mono">
+                <div className="text-terminal-green terminal-glow text-xl mb-2">BLOG_ENTRY_NOT_FOUND</div>
+                <div className="text-terminal-green-dim text-sm">The requested log could not be loaded.</div>
             </div>
         </div>
     }

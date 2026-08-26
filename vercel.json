@@ -1,8 +1,7 @@
 {
-  "installCommand": "npm install --prefix ..",
-  "buildCommand": "npm run build:frontend --prefix ..",
-  "outputDirectory": "dist",
-  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build:frontend",
+  "outputDirectory": "frontend/dist",
   "framework": "vite",
   "rewrites": [
     {

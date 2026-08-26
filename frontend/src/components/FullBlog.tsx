@@ -25,14 +25,14 @@ function AuthorCard({ blog }: { blog: Blog }) {
             </div>
             <div className="flex w-full">
                 <div className="pr-4 flex flex-col justify-center">
-                    <Avatar size="big" name={blog.author.name || "Anonymous"} />
+                    <Avatar size="big" name={blog.author?.name || "Anonymous"} />
                 </div>
                 <div>
                     <div className="text-xl font-bold text-terminal-green">
-                        {blog.author.name || "Anonymous"}
+                        {blog.author?.name || "Anonymous"}
                     </div>
                     <div className="text-terminal-green-dim text-xs mt-1">
-                        USER@{(blog.author.name || "anonymous").toLowerCase().replace(/\s/g, '_')}.local
+                        USER@{(blog.author?.name || "anonymous").toLowerCase().replace(/\s/g, '_')}.local
                     </div>
                 </div>
             </div>

@@ -20,7 +20,11 @@ export const Auth = ({ type }: { type: "signup" | "signin" }) => {
         setLoading(true);
         setError(null);
         try {
-            const response = await axios.post(`${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, postInputs);
+            const response = await axios.post(
+                `${BACKEND_URL}/api/v1/user/${type === "signup" ? "signup" : "signin"}`,
+                postInputs,
+                { withCredentials: true }
+            );
             const jwt = response.data.jwt;
             tokenManager.setToken(jwt);
             navigate("/blogs");

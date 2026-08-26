@@ -10,25 +10,23 @@ const app = new Hono<{
   }
 }>()
 
-// Enhanced CORS configuration for production with cookie support
 app.use('*', cors({
-  origin: (origin, c) => {
-    // Allow requests from known origins or localhost for development
-    const allowedOrigins = [
-      'https://story-tide-frontend.vercel.app',
-      'https://story-tide-frontend-fwnkj1ins-amitbartwal008-6084s-projects.vercel.app',
-      'http://localhost:5173',
-      'http://localhost:3000'
-    ];
-    
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return '*';
-    
-    if (allowedOrigins.includes(origin)) {
-      return origin;
+  origin: (origin) => {
+    if (!origin) {
+      return origin
     }
-    
-    return null;
+
+    const isLocalhost = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
+    const isVercel = origin.endsWith('.vercel.app')
+    const knownOrigins = [
+      'https://story-tide-frontend.vercel.app',
+    ]
+
+    if (isLocalhost || isVercel || knownOrigins.includes(origin)) {
+      return origin
+    }
+
+    return null
   },
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'Authorization'],

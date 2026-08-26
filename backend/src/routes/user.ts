@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { Hono } from "hono";
 import { sign } from "hono/jwt";
+import { signupInput, signinInput } from "@medium-blogging/common-app";
 
 export const userRouter = new Hono<{
   Bindings: {
@@ -9,9 +10,6 @@ export const userRouter = new Hono<{
     JWT_SECRET: string;
   }
 }>();
-
-
-import { signupInput, signinInput } from "@medium-blogging/common-app";
 
 async function hashPassword(password: string) {
   const encoder = new TextEncoder();
@@ -48,7 +46,7 @@ userRouter.post('/signup', async (c) => {
 
     const jwt = await sign({
       id: user.id
-    }, c.env.JWT_SECRET);
+    }, c.env.JWT_SECRET, "HS256");
 
     // Set HTTP-only cookie for secure authentication
     c.header('Set-Cookie', `token=${jwt}; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=86400`);
@@ -88,7 +86,8 @@ userRouter.post('/signin', async (c) => {
 
     const jwt = await sign(
       { id: user.id },
-      c.env.JWT_SECRET
+      c.env.JWT_SECRET,
+      "HS256"
     )
 
     // Set HTTP-only cookie for secure authentication

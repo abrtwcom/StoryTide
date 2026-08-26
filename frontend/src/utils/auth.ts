@@ -50,7 +50,7 @@ class TokenManager {
     getAuthHeader(): Record<string, string> {
         const token = this.getToken();
         if (token) {
-            return { Authorization: token };
+            return { Authorization: `Bearer ${token}` };
         }
         return {};
     }

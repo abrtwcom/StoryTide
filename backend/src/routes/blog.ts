@@ -17,15 +17,15 @@ export const blogRouter = new Hono<{
 
 
 blogRouter.use("/*", async (c, next) => {
-    // Try to get token from cookie first, then from authorization header
     const cookieHeader = c.req.header("cookie") || "";
     const authHeader = c.req.header("authorization") || "";
-    
-    // Allow public access to blog reading endpoints (GET /bulk and GET /:id)
-    const isBulkRead = c.req.path.includes("/bulk") && c.req.method === "GET";
-    const isSingleBlogRead = /^\/[\w-]+$/.test(c.req.path.replace('/api/v1/blog', '')) && c.req.method === "GET";
-    
-    if (isBulkRead || isSingleBlogRead) {
+    const path = c.req.path;
+    const method = c.req.method;
+    const isPublicRead =
+        method === "GET" &&
+        (path.endsWith("/bulk") || /\/blog\/[^/]+$/.test(path));
+
+    if (isPublicRead) {
         await next();
         return;
     }

@@ -1,9 +1,9 @@
-import zod from "zod";
-declare const signupInput: zod.ZodObject<{
-    email: zod.ZodString;
-    password: zod.ZodString;
-    name: zod.ZodOptional<zod.ZodString>;
-}, "strip", zod.ZodTypeAny, {
+import { z } from "zod";
+declare const signupInput: z.ZodObject<{
+    email: z.ZodString;
+    password: z.ZodString;
+    name: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
     email: string;
     password: string;
     name?: string | undefined;
@@ -12,21 +12,21 @@ declare const signupInput: zod.ZodObject<{
     password: string;
     name?: string | undefined;
 }>;
-declare const signinInput: zod.ZodObject<{
-    email: zod.ZodString;
-    password: zod.ZodString;
-}, "strip", zod.ZodTypeAny, {
+declare const signinInput: z.ZodObject<{
+    email: z.ZodString;
+    password: z.ZodString;
+}, "strip", z.ZodTypeAny, {
     email: string;
     password: string;
 }, {
     email: string;
     password: string;
 }>;
-declare const createPostInput: zod.ZodObject<{
-    title: zod.ZodString;
-    content: zod.ZodString;
-    published: zod.ZodOptional<zod.ZodBoolean>;
-}, "strip", zod.ZodTypeAny, {
+declare const createPostInput: z.ZodObject<{
+    title: z.ZodString;
+    content: z.ZodString;
+    published: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
     content: string;
     title: string;
     published?: boolean | undefined;
@@ -35,12 +35,12 @@ declare const createPostInput: zod.ZodObject<{
     title: string;
     published?: boolean | undefined;
 }>;
-declare const updatePostInput: zod.ZodObject<{
-    id: zod.ZodString;
-    title: zod.ZodOptional<zod.ZodString>;
-    content: zod.ZodOptional<zod.ZodString>;
-    published: zod.ZodOptional<zod.ZodBoolean>;
-}, "strip", zod.ZodTypeAny, {
+declare const updatePostInput: z.ZodObject<{
+    id: z.ZodString;
+    title: z.ZodOptional<z.ZodString>;
+    content: z.ZodOptional<z.ZodString>;
+    published: z.ZodOptional<z.ZodBoolean>;
+}, "strip", z.ZodTypeAny, {
     id: string;
     content?: string | undefined;
     title?: string | undefined;
@@ -51,8 +51,8 @@ declare const updatePostInput: zod.ZodObject<{
     title?: string | undefined;
     published?: boolean | undefined;
 }>;
-export type updatePostType = zod.infer<typeof updatePostInput>;
-export type createPostType = zod.infer<typeof createPostInput>;
-export type signinInputType = zod.infer<typeof signinInput>;
-export type signupInputType = zod.infer<typeof signupInput>;
+export type updatePostType = z.infer<typeof updatePostInput>;
+export type createPostType = z.infer<typeof createPostInput>;
+export type signinInputType = z.infer<typeof signinInput>;
+export type signupInputType = z.infer<typeof signupInput>;
 export { signupInput, signinInput, createPostInput, updatePostInput };

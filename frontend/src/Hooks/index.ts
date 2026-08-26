@@ -11,7 +11,7 @@ export interface Blog {
     "createdAt": string
     "author": {
         "name": string
-    }
+    } | undefined
 }
 
 export const useBlog = ({ id }: { id: string }) => {
@@ -19,8 +19,14 @@ export const useBlog = ({ id }: { id: string }) => {
     const [blog, setBlog] = useState<Blog>();
 
     useEffect(() => {
+        if (!id) {
+            setLoading(false);
+            return;
+        }
+
         axios.get(`${BACKEND_URL}/api/v1/blog/${id}`, {
-            headers: tokenManager.getAuthHeader()
+            headers: tokenManager.getAuthHeader(),
+            withCredentials: true
         })
             .then(response => {
                 setBlog(response.data.blog);
@@ -44,7 +50,8 @@ export const useBlogs = () => {
 
     useEffect(() => {
         axios.get(`${BACKEND_URL}/api/v1/blog/bulk`, {
-            headers: tokenManager.getAuthHeader()
+            headers: tokenManager.getAuthHeader(),
+            withCredentials: true
         })
             .then((response) => {
                 setBlogs(response.data.blogs || []);

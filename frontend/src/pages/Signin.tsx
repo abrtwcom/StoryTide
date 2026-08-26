@@ -26,7 +26,7 @@ export const Signin = () => {
             <div className="border-b border-terminal-green px-6 py-3">
                 <div className="flex justify-between items-center font-mono text-sm">
                     <div className="flex flex-row justify-center items-center gap-3">
-                        <img src="/storytide logo.svg" alt="StoryTide Logo" className="w-8 h-8 object-contain" />
+                        <img src="/storytide-logo.svg" alt="StoryTide Logo" className="w-8 h-8 object-contain" />
                         <span className="font-mono text-xl font-bold text-terminal-green terminal-glow tracking-wider">
                             STORYTIDE
                         </span>
@@ -63,7 +63,7 @@ export const Signin = () => {
                                         <span className="text-terminal-green-dark">Email:</span> demo@storytide.com
                                     </div>
                                     <div className="text-terminal-green text-xs mt-1">
-                                        <span className="text-terminal-green-dark">Password:</span> 123
+                                        <span className="text-terminal-green-dark">Password:</span> demo123
                                     </div>
                                 </div>
                                 <div className="text-terminal-green-dark text-xs mt-3">
